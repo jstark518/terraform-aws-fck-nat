@@ -130,6 +130,7 @@ resource "aws_instance" "main" {
 
   lifecycle {
     ignore_changes = [
+      public_ip,
       source_dest_check,
       user_data,
       tags
