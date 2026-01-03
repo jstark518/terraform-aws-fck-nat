@@ -80,7 +80,7 @@ resource "aws_launch_template" "main" {
   network_interfaces {
     description                 = "${var.name} ephemeral public ENI"
     subnet_id                   = var.subnet_id
-    associate_public_ip_address = true
+    associate_public_ip_address = length(var.eip_allocation_ids) == 0
     security_groups             = local.security_groups
   }
 
